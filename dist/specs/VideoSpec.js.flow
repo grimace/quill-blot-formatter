@@ -3,13 +3,13 @@
 import BlotSpec from './BlotSpec';
 import BlotFormatter from '../BlotFormatter';
 
-export default class ImageSpec extends BlotSpec {
-  img: ?HTMLElement;
-  name: 'ImageSpec';
-  
+export default class VideoSpec extends BlotSpec {
+  video: ?HTMLElement;
+  name: 'VideoSpec';
+
   constructor(formatter: BlotFormatter) {
     super(formatter);
-    this.img = null;
+    this.video = null;
   }
 
   init() {
@@ -17,20 +17,20 @@ export default class ImageSpec extends BlotSpec {
   }
 
   getTargetElement(): ?HTMLElement {
-    return this.img;
+    return this.video;
   }
 
   onHide() {
-    this.img = null;
+    this.video = null;
   }
 
   onClick = (event: MouseEvent) => {
     const el = event.target;
-    if (!(el instanceof HTMLElement) || el.tagName !== 'IMG') {
+    if (!(el instanceof HTMLElement) || el.tagName !== 'VIDEO') {
       return;
     }
 
-    this.img = el;
+    this.video = el;
     this.formatter.show(this);
   };
 
